@@ -1,9 +1,9 @@
 class Solution:
     def findMedianSortedArrays(self, nums1: List[int], nums2: List[int]) -> float:
-        final=nums1+nums2
-        final.sort()
-        if len(final)%2==0:
-            mid=len(final)//2
-            return (final[mid]+final[mid-1])/2
-        mid=(len(final))//2
-        return final[mid]
+        nums1.extend(nums2)
+        nums1.sort()
+        if len(nums1)%2==0:
+            mid=len(nums1)//2
+            return (nums1[mid]+nums1[mid-1])/2
+        mid=(len(nums1))//2
+        return nums1[mid]
