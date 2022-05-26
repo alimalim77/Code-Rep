@@ -6,6 +6,5 @@ class Solution:
             a = n & 1
             n = n >> 1
             s.append(str(a))
-        ans = "".join(s)
-        return int(ans,2)
+        return int("".join(s),2)
             
