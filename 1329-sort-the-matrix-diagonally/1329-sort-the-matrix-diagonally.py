@@ -1,3 +1,4 @@
+import heapq
 class Solution:
     def diagonalSort(self, mat: List[List[int]]) -> List[List[int]]:
         hm = {}
@@ -11,11 +12,12 @@ class Solution:
         ret = [[0 for _ in range(len(mat[0]))] for _ in range(len(mat))]
         
         for i,j in hm.items():
-            hm[i] = sorted(j)
+            heapq.heapify(hm[i])
+        print(hm)
         
         for i in range(len(mat)):
             for j in range(len(mat[0])):
                 if i-j in hm:
-                    ret[i][j] = hm[i-j].pop(0)
+                    ret[i][j] = heapq.heappop(hm[i-j])
         return ret
                 
