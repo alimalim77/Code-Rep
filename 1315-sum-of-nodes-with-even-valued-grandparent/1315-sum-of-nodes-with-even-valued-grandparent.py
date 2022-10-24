@@ -11,10 +11,11 @@ class Solution:
             nonlocal res
             if not root:
                 return 
-            if grandparent and grandparent.val % 2== 0:
-                res += root.val
+
             helper(root.left,root,parent)
             helper(root.right,root,parent)
+            if grandparent and grandparent.val % 2== 0:
+                res += root.val
             
             
                 
